@@ -15,6 +15,7 @@ import Contact from './src/screens/contacts';
 import {init} from '@rematch/core';
 import {contacts} from './src/redux/models';
 import {Provider} from 'react-redux';
+import Navigation from './src/navigation/navigation';
 
 const models = {
   contacts,
@@ -29,12 +30,7 @@ const Drawer = createDrawerNavigator();
 const App = () => {
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name="Home" component={Home} />
-          <Drawer.Screen name="Contact" component={Contact} />
-        </Drawer.Navigator>
-      </NavigationContainer>
+      <Navigation />
     </Provider>
   );
 };

@@ -1,11 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, FlatList, Image, ActivityIndicator} from 'react-native';
+import {FlatList, View} from 'react-native';
 import {connect} from 'react-redux';
-import {Loading} from '../shared/loading';
+import {List, Loading, MediumText} from '../shared';
 import {ContactProps as Props} from '../types/types';
-// import {Button} from '../shared/button';
-// import {MediumText, RegularText} from '../shared/text';
-// import {HomeScreenProps} from '../types/types.d';
 import {ContactStyles as styles} from './styles';
 
 const Contact = ({contacts, listUsers}: Props) => {
@@ -18,23 +15,12 @@ const Contact = ({contacts, listUsers}: Props) => {
       .catch((err: string) => console.log(err));
   });
 
-  const _renderItem = ({item}: any) => (
-    <View style={styles.list}>
-      <Image style={styles.image} source={{uri: item.avatar}} />
-      <View>
-        <View style={styles.name}>
-          <Text style={styles.firstName}>{item.first_name}</Text>
-          <Text style={styles.lastName}>{item.last_name}</Text>
-        </View>
-        <Text style={styles.email}>{item.email}</Text>
-      </View>
-    </View>
-  );
+  const _renderItem = ({item}: any) => <List item={item} />;
 
   return (
     <View style={styles.container}>
       <View>
-        <Text>Contact</Text>
+        <MediumText title="Contacts" style={styles.title} />
         {data && <FlatList data={data} renderItem={_renderItem} />}
       </View>
 
