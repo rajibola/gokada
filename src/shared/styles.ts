@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import colors from '../constants/colors';
 import {fonts} from '../constants/fonts';
 import {hp, wp} from './layout';
 
@@ -19,7 +20,7 @@ export const LoadingStyles = StyleSheet.create({
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: colors.light,
     left: 0,
     right: 0,
     bottom: 0,
@@ -47,7 +48,7 @@ export const ListStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderColor: '#f1f2f6',
+    borderColor: colors.light,
   },
   image: {
     width: wp(50),
