@@ -6,20 +6,21 @@
  * @flow strict-local
  */
 
-import 'react-native-gesture-handler';
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import Home from './src/screens/home';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Contact from './src/screens/contacts';
-import {init} from '@rematch/core';
-import {contacts} from './src/redux/models';
+import {init, RematchDispatch, RematchRootState} from '@rematch/core';
+import React from 'react';
+import 'react-native-gesture-handler';
 import {Provider} from 'react-redux';
 import Navigation from './src/navigation/navigation';
+import {contacts} from './src/redux/models';
 
-const models = {
+export type RootModel = typeof models;
+
+const models: RematchRootState<any> = {
   contacts,
 };
+
+export type Dispatch = RematchDispatch<RootModel>;
 
 const store = init({
   models,

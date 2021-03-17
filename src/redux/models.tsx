@@ -1,12 +1,15 @@
+import {createModel} from '@rematch/core';
+import {Dispatch} from '../../App';
+
 export const baseURL = 'https://reqres.in/api';
 
-export const contacts = {
+export const contacts = createModel({
   state: {
     users_data: [],
   },
 
   reducers: {
-    saveUsersList(state, users) {
+    saveUsersList(state?: any, users?: any) {
       return {
         ...state,
         users_data: users,
@@ -14,16 +17,16 @@ export const contacts = {
     },
   },
 
-  effects: {
-    async listUsers(_, state) {
+  effects: (dispatch: Dispatch) => ({
+    async listUsers(_: any, state: any) {
       await fetch(`${baseURL}/users?page=1`)
         .then(response => response.json())
         .then(json => {
-          this.saveUsersList(json);
+          dispatch.contacts.saveUsersList(json);
         })
         .catch(error => {
           console.error(error);
         });
     },
-  },
-};
+  }),
+});

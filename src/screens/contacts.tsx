@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, View} from 'react-native';
 import {connect} from 'react-redux';
+import {Dispatch} from '../../App';
 import {List, Loading, MediumText} from '../shared';
 import {ContactProps as Props} from '../types/types';
 import {ContactStyles as styles} from './styles';
