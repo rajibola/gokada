@@ -6,7 +6,6 @@
  * @flow strict-local
  */
 
-import {createDrawerNavigator} from '@react-navigation/drawer';
 import {init, RematchRootState} from '@rematch/core';
 import React from 'react';
 import 'react-native-gesture-handler';
@@ -21,8 +20,6 @@ export const models: RematchRootState<any> = {
 const store = init({
   models,
 });
-
-const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
