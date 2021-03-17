@@ -1,5 +1,5 @@
 import {createModel} from '@rematch/core';
-import {Dispatch} from '../../App';
+import {Dispatch} from '../types/types';
 
 export const baseURL = 'https://reqres.in/api';
 
@@ -9,7 +9,7 @@ export const contacts = createModel({
   },
 
   reducers: {
-    saveUsersList(state?: any, users?: any) {
+    saveUsersList(state, users) {
       return {
         ...state,
         users_data: users,
@@ -18,7 +18,7 @@ export const contacts = createModel({
   },
 
   effects: (dispatch: Dispatch) => ({
-    async listUsers(_: any, state: any) {
+    async listUsers(_, state) {
       await fetch(`${baseURL}/users?page=1`)
         .then(response => response.json())
         .then(json => {

@@ -1,9 +1,9 @@
+import {RematchRootState} from '@rematch/core';
 import React, {useEffect, useState} from 'react';
 import {FlatList, View} from 'react-native';
 import {connect} from 'react-redux';
-import {Dispatch} from '../../App';
 import {List, Loading, MediumText} from '../shared';
-import {ContactProps as Props} from '../types/types';
+import {ContactProps as Props, Dispatch} from '../types/types';
 import {ContactStyles as styles} from './styles';
 
 const Contact = ({contacts, listUsers}: Props) => {
@@ -30,11 +30,11 @@ const Contact = ({contacts, listUsers}: Props) => {
   );
 };
 
-const mapState = (state: any) => ({
+const mapState = (state: RematchRootState<any>) => ({
   contacts: state.contacts,
 });
-const mapDispatch = (dispatch: any) => ({
+const mapDispatch = (dispatch: Dispatch) => ({
   listUsers: () => dispatch.contacts.listUsers(),
 });
 
-export default connect(mapState, mapDispatch)(Contact);
+export default connect(mapState, mapDispatch as any)(Contact);

@@ -7,20 +7,16 @@
  */
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {init, RematchDispatch, RematchRootState} from '@rematch/core';
+import {init, RematchRootState} from '@rematch/core';
 import React from 'react';
 import 'react-native-gesture-handler';
 import {Provider} from 'react-redux';
 import Navigation from './src/navigation/navigation';
 import {contacts} from './src/redux/models';
 
-export type RootModel = typeof models;
-
-const models: RematchRootState<any> = {
+export const models: RematchRootState<any> = {
   contacts,
 };
-
-export type Dispatch = RematchDispatch<RootModel>;
 
 const store = init({
   models,
