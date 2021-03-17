@@ -1,7 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 import colors from '../constants/colors';
 import {fonts} from '../constants/fonts';
-import {hp, wp} from '../shared/layout';
+import {getStatusBarHeight, hp, wp} from '../shared/layout';
 
 export const HomeStyles = StyleSheet.create({
   subtitle: {
@@ -14,7 +14,8 @@ export const HomeStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.light,
-    marginHorizontal: wp(20),
+    paddingHorizontal: wp(20),
+    paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0,
   },
 });
 
@@ -30,5 +31,6 @@ export const ContactStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     paddingLeft: wp(10),
+    paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0,
   },
 });
