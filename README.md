@@ -4,9 +4,8 @@
 
 <span>
  <img src="./docs/assets/preview.gif" alt="preview"  width="270" />
+ <img src="./docs/assets/ios-preview.gif" alt="ios-preview"  width="270" />
 </span>
-
-
 
 ## Getting Started
 
